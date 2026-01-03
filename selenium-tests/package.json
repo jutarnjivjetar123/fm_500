@@ -1,0 +1,24 @@
+{
+  "name": "formalne-metode-seminarski",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/**/*.test.js --timeout 60000",
+    "test:headed": "set HEADLESS=false && mocha tests/**/*.test.js --timeout 60000"
+  },
+  "keywords": [
+    "formalne-metode",
+    "seminarski",
+    "IB250209",
+    "IB220171",
+    "IB200129"
+  ],
+  "author": "Arman Ossi Loko (IB250209), Mahir Keran (IB220171), Edo Smola (IB200129)",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.15.0"
+  }
+}
