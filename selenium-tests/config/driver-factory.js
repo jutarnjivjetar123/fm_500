@@ -1,4 +1,4 @@
-const { Builder } = require('selenium-webdriver');
+const { Browser, Builder } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const config = require('./config');
 
@@ -22,7 +22,7 @@ class DriverFactory {
         
         try {
             this.driver = await new Builder()
-                .forBrowser('chrome')
+                .forBrowser(Browser.CHROME)
                 .setChromeOptions(options)
                 .build();
             
