@@ -8,9 +8,17 @@ class DriverFactory {
     }
 
     async createDriver() {
+        if (this.driver) {
+            try {
+                await this.driver.getSession();
+                return this.driver;
+            } catch (error) {
+                this.driver = null;
+            }
+        }
+        
         const options = new chrome.Options();
         
-        // Headless mode - koristi novi headless mode za novije verzije Chrome-a
         if (config.browser.headless) {
             options.addArguments('--headless=new');
         }
@@ -38,7 +46,7 @@ class DriverFactory {
             
             return this.driver;
         } catch (error) {
-            console.error('Greška pri kreiranju WebDriver-a:', error.message);
+            console.error('Greska pri kreiranju WebDriver-a:', error.message);
             throw error;
         }
     }
@@ -52,7 +60,7 @@ class DriverFactory {
             try {
                 await this.driver.quit();
             } catch (error) {
-                console.error('Greška pri zatvaranju driver-a:', error.message);
+                console.error('Greska pri zatvaranju driver-a:', error.message);
             }
             this.driver = null;
         }
