@@ -24,9 +24,9 @@ describe('BMI Calculator.net testovi', function() {
         await handleTestFailure(this);
     });
 
-    describe('BMI Calculator testoiv', function() {
+    describe('BMI Calculator testovi', function() {
         
-        it('Test 1: Trebao bi uspješno učitati BMI Calculator stranicu', async function() {
+        it('Test 1: Trebao bi loadati BMI Calculator stranicu i provjeriti naslov', async function() {
             await driver.get(BASE_URL);
             await waitForPageLoad();
             
@@ -79,7 +79,7 @@ describe('BMI Calculator.net testovi', function() {
             expect(isWeightVisible).to.be.true;
         });
 
-        it('Test 5: Trebao bi omogućiti prebacivanje između US i Metric jedinica', async function() {
+        it('Test 5: Trebao bi omoguciti prebacivanje izmedju US i Metric jedinica', async function() {
             await driver.get(BASE_URL);
             await waitForPageLoad();
             await driver.sleep(1000);
@@ -101,7 +101,7 @@ describe('BMI Calculator.net testovi', function() {
             expect(isPoundVisible).to.be.true;
         });
         
-        it('Test 6: Trebao bi izračunati BMI sa Metric jedinicama i prikazati rezultat', async function() {
+        it('Test 6: Trebao bi izracunati BMI sa Metric jedinicama i prikazati rezultat', async function() {
             await driver.get(BASE_URL);
             await waitForPageLoad();
             await driver.sleep(1000);
@@ -158,7 +158,7 @@ describe('BMI Calculator.net testovi', function() {
             expect(resultText.toLowerCase()).to.include('normal');
         });
 
-        it('Test 8: Trebao bi omogućiti Clear funkciju za resetovanje forme', async function() {
+        it('Test 8: Trebao bi omoguciti Clear funkciju za resetovanje forme', async function() {
             await driver.get(BASE_URL);
             await waitForPageLoad();
             await driver.sleep(1000);

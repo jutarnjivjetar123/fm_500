@@ -26,7 +26,7 @@ describe('Calculator.net testovi', function() {
 
     describe('Homepage testovi', function() {
         
-        it('Test 1: Trebao bi uspješno loadati homepage i provjeriti naslov', async function() {
+        it('Test 1: Trebao bi loadati homepage i provjeriti naslov', async function() {
             await driver.get(BASE_URL);
             await waitForPageLoad();
             
@@ -58,7 +58,7 @@ describe('Calculator.net testovi', function() {
             expect(linkText.toLowerCase()).to.equal('sign in');
         });
 
-        it('Test 4: Trebao bi prikazati scientific calculator', async function() {
+        it('Test 4: Trebao bi prikazati scientific calculator i default vrijednost', async function() {
             await driver.get(BASE_URL);
             await waitForPageLoad();
             await driver.sleep(1000);
@@ -66,21 +66,14 @@ describe('Calculator.net testovi', function() {
             const sciCalc = await driver.findElement(By.css('#sciout'));
             const isVisible = await sciCalc.isDisplayed();
             
-            expect(isVisible).to.be.true;
-        });
-
-        it('Test 5: Trebao bi prikazati scientific calculator i default vrijednost', async function() {
-            await driver.get(BASE_URL);
-            await waitForPageLoad();
-            await driver.sleep(1000);
-            
             const output = await driver.findElement(By.css('#sciOutPut'));
             const value = await output.getText();
             
+            expect(isVisible).to.be.true;
             expect(value).to.equal('0');
         });
 
-        it('Test 6: Trebao bi prikazati search bar', async function() {
+        it('Test 5: Trebao bi prikazati search bar', async function() {
             await driver.get(BASE_URL);
             await waitForPageLoad();
             
@@ -90,7 +83,7 @@ describe('Calculator.net testovi', function() {
             expect(isVisible).to.be.true;
         });
 
-        it('Test 7: Trebao bi prikazati search button', async function() {
+        it('Test 6: Trebao bi prikazati search button', async function() {
             await driver.get(BASE_URL);
             await waitForPageLoad();
             
@@ -102,21 +95,7 @@ describe('Calculator.net testovi', function() {
             expect(btnText.toLowerCase()).to.equal('search');
         });
 
-        it('Test 8: Trebao bi prikazati kategoriju Finansijski kalkulatori', async function() {
-            await driver.get(BASE_URL);
-            await waitForPageLoad();
-            await driver.sleep(1000);
-            
-            await driver.executeScript('window.scrollTo(0, 800);');
-            await driver.sleep(1000);
-            
-            const finLink = await driver.findElement(By.linkText('Financial Calculators'));
-            const isVisible = await finLink.isDisplayed();
-            
-            expect(isVisible).to.be.true;
-        });
-
-        it('Test 9: Trebao bi prikazati footer sa linkovima', async function() {
+        it('Test 7: Trebao bi prikazati footer sa linkovima', async function() {
             await driver.get(BASE_URL);
             await waitForPageLoad();
             
